@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KPR HOSPITAL</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="ad.css">
+</head>
+<body class="a">                            
+        <div class="main">
+            <div class="header">
+                                   
+                  <div class="head">
+<nav>  
+<img src="N1.png"  class="logo" width="90" height="90">
+<ul> 
+ <li><a href="index.html"> HOME </a>  </li>
+<li><a href="docsp.html"> DOCTOR </a>  </li>
+<li><a href="doctor login.html"> DOCTOR LOGIN </a>  </li>
+<li><a href="admin login.html"> USER LOGIN </a>  </li>
+<li><a href="contact.html"> CONTACT </a></li>    </ul>
+</nav>  
+</div>
+            <div class="a">
+                <h2 style="margin-left: 130px;"><br/>Appointments</h2>
+                <form class="myForm" method="get" enctype="application/x-www-form-urlencoded" action="view_patAcc.html">
+                        
+                    <p>
+                    <label>Date and Time
+                    <input type="datetime-local" name="admission_time" required>
+                    </label>
+                    </p>
+
+
+                    <h3><br/><b>Patients Name</b></h3>    
+                    <p>
+                            <label>First Name
+                            <input type="text" name="first_name" placeholder="Enter first name" required>
+                            </label> 
+
+                            
+
+                            <label>Last Name
+                            <input type="text" name="Last_name" placeholder="Enter last name" required>
+                            </label>
+                    </p>
+
+
+                    <h3><br/><b>Patients Info</b></h3>   
+                        <p>
+                            <label>Date of birth
+                            <input type="date" name="dob" required>
+                            </label>
+                        </p>
+
+                        <p>
+                            <label>Age
+                            <input type="tel" name="age">
+                            </label>
+                        </p> 
+                    
+                        <fieldset>
+                        <legend>Gender</legend>
+                        <p><label class="choice"> <input type="radio" name="gender" required value="male"> Male </label></p>
+                        <p><label class="choice"> <input type="radio" name="gender" required value="female"> Female </label></p>
+                        <p><label class="choice"> <input type="radio" name="gender" required value="others"> Others </label></p>
+                        </fieldset>
+
+                        
+                        <p>
+                        <label>Blood Group
+                        <select id="blood_group" name="blood_group" required>
+                        <option value="" selected="selected">Select One</option>
+                        <option value="A+" >A+</option>
+                        <option value="A-" >A-</option>
+                        <option value="B+" >B+</option>
+                        <option value="B-" >B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+" >O+</option>
+                        <option value="O-" >O-</option>
+                        </select>
+                        </label> 
+                        </p>
+
+                        <p>
+                        <label>Phone Number
+                        <input type="tel" name="phone_number">
+                        </label>
+                        </p>
+        
+                        <p>
+                        <label>Email
+                        <input type="email" name="email_address">
+                        </label>
+                        </p>
+        
+
+                        
+                    
+                <h3><br/><b>Permanent Address</b></h3>  
+                    <p>
+                        <label>Street No.
+                        <input type="tel" name="street_number">
+                        </label>
+                        </p>
+
+                        <p>
+                        <label>Street Name
+                        <input type="text" name="street_name">
+                        </label>
+                        </p>
+
+                        <p>
+                                <label>Area/village
+                                <input type="text" name="area">
+                                </label>
+                        </p>
+<p>
+                                <label>District
+                              <input type="text" name="district">
+                                </label> 
+                                </p>
+                        <label>Postal Code
+                        <input type="tel" name="postal_number">
+                        </label>
+                        </p>
+                    <h3><br/><b>Doctors</b></h3>
+                    
+                    
+                    <fieldset>
+                    <legend>Select Specialist and Doctor</legend>
+                    <p><label class="choice"> <input type="radio" name="choice"  value="ALLERGISTS/IMMUNOLOGISTS"> ALLERGISTS/IMMUNOLOGISTS </label>
+                        <select><option>Select</option>
+                        <option value="Arjun">Dr.Arjun</option>
+                        <option value="Akriti">Dr.Akriti Rai</option>
+                        <option value="bose">Dr.HS Bose</option>
+                        <option value="james">Dr.RD James</option></select>
+                    </p><br>
+                    <p><label class="choice"> <input type="radio" name="choice"  value="ANESTHESIOLOGISTS"> ANESTHESIOLOGISTS </label>
+                        <select >
+                            <option value="select">Select</option>
+                            <option value="swarup">Dr.Swarup</option>
+                            <option value="sowmiya">Dr.Sowmiya</option>
+                            <option value="puja">Dr.Puja</option>
+                            <option value="ramesh">Dr.Ramesh</option>
+                        </select>    
+                    </p><br>
+                    <p><label class="choice"> <input type="radio" name="choice"  value="CARDEOLIGISTS"> CARDEOLIGISTS </label>
+                        <select >
+                            <option value="select">Select</option>
+                            <option value="abilash">Dr.Abilash</option>
+                            <option value="vishnu">Dr.Vishnu</option>
+                            <option value="shanmathi">Dr.Shanmathi</option>
+                            <option value="sanjay">Dr.Sanjay</option>
+                        </select>
+                    </p><br>
+                    <p><label class="choice"> <input type="radio" name="choice"  value="SURGEONS"> SURGEONS </label>
+                        <select>
+                            <option value="select">Select</option>
+                            <option value="thilak">Dr.Thilak</option>
+                            <option value="ashwin">Dr.Ashwin</option>
+                            <option value="saranya">Dr.Saranya</option>
+                            <option value="shanjiv">Dr.Shanjiv</option>
+                        </select>
+                    </p><br>
+                    <p><label class="choice"> <input type="radio" name="choice"  value="NEUROLOGISTS"> NEUROLOGISTS </label>
+                        <select>
+                            <option value="select">Select</option>
+                            <option value="tharun">Dr.Tharun</option>
+                            <option value="sudharsan">Dr.Sudharsan</option>
+                            <option value="gayathri">Dr.Gayathri</option>
+                            <option value="babu">Dr.Babu</option>
+                        
+                        </select>
+                    </p><br>
+                    </fieldset>
+
+                    <br>
+                        
+                    <p>
+                    <label>Disease Name and Severity
+                    <input type="text" name="disease" required>
+                    </label>
+                    </p>
+                    
+                    <p>
+                    <label>Special Note
+                    <textarea name="comments" maxlength="500"></textarea>
+                    </label>
+                    </p>
+                    
+                    <br/><br/><br/><br/><p>
+                            <label>Amount Deposited
+                            <input type="tel" name="amount" required>
+                            </label>
+                            </p>
+                    <p><button>Submit form</button></p>
+                    
+                    </form>
+              </div>
+
+                    </div>
+</body>
+</html><SCRIPT Language=VBScript>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./admin login.css">
+    <title>User Login</title>
+    <script src="./dataadminlogin.js"></script>
+
+</head>
+
+<body>
+        <div class="head">
+<nav>  
+<img src="N1.png"  class="logo" width="90" height="90">
+<ul> 
+  <li><a href="index.html"> HOME </a>  </li>
+<li><a href="docsp.html"> DOCTOR </a>  </li>
+<li><a href="doctor login.html"> DOCTOR LOGIN </a>  </li>
+<li><a href="admin login.html"> USER LOGIN </a>  </li>
+<li><a href="contact.html"> CONTACT </a></li>     
+</ul>
+</nav>  
+</div>
+    <div class="container">
+
+        
+            <h1>USER LOGIN</h1>
+           
+                <input type="text" name="user1" class="ID" maxlength="100" minlength="3" placeholder="enter your email" id="eemail"
+                    > <br>
+                <input type="password" name="pass1" class="password" maxlength="32" minlength="8" placeholder="enter your password" id="lpassword"
+                    > <br>
+       
+            
+                <input type="submit" id="signup"  name="signup" value="sign up" />
+                <input type="submit" id="login"  name="login" value="login" />
+                <div class="button">
+                  <button><a href="http://localhost/doctor-appointment-booking-system-php/dashboard.php"> Book an Appointment</a></button>
+                  </div>
+
+                
+                  
+              
+        
+            
+       
+      </body>
+
+
+      <script type="module"> 
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+        import { getDatabase,set,ref,update } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAw74VnBaozlmeG0v6o3W52Wuoq1Vg17Cs",
+          authDomain: "authentication-efffb.firebaseapp.com",
+          databaseURL: "https://authentication-efffb-default-rtdb.firebaseio.com",
+          projectId: "authentication-efffb",
+          storageBucket: "authentication-efffb.appspot.com",
+          messagingSenderId: "1019379381116",
+          appId: "1:1019379381116:web:32f0ad6ce1434634aceaf9"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database=getDatabase(app);
+        const auth = getAuth();
+
+
+
+        signup.addEventListener('click',(e) =>{
+
+
+        var email=document.getElementById("eemail").value;
+        var password=document.getElementById("lpassword").value;
+
+
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+            // Signed in 
+              const user = userCredential.user;
+              set(ref(database, 'users/' + user.uid), {
+                   email: email,
+                   password: password
+                  })
+                 alert("user created successfully"); 
+               // ...
+             })
+              .catch((error) => {
+               const errorCode = error.code;
+               const errorMessage = error.message;
+                // ..
+               alert(errorMessage);
+                });
+              });
+
+              login.addEventListener('click',(e) =>{
+                var email=document.getElementById("eemail").value;
+                var password=document.getElementById("lpassword").value;
+
+                signInWithEmailAndPassword(auth, email, password)
+                      .then((userCredential) => {
+                  // Signed in 
+                 const user = userCredential.user;
+                 const dt=new Date();
+                 update(ref(database, 'users/' + user.uid), {
+                   last_login :dt,
+                  })
+                  alert("WELCOME TO KPR HOSPITAL");
+                  window.location.href="./ad.html";
+                    // ...
+                   })
+                .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  alert(errorMessage);
+                  });
+
+              });
+      </script>
+
+    </html>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./admin login.css">
+    <title>Admin Login</title>
+
+</head>
+
+<body>
+        <div class="head">
+<nav>  
+<img src="N1.png"  class="logo" width="90" height="90">
+<ul> 
+  <li><a href="index.html"> HOME </a>  </li>
+<li><a href="docsp.html"> DOCTOR </a>  </li>
+<li><a href="doctor login.html"> DOCTOR LOGIN </a>  </li>
+<li><a href="admin login.html"> ADMIN LOGIN </a>  </li>
+<li><a href="contact.html"> CONTACT </a></li>     
+</ul>
+</nav>  
+</div>
+    <div class="container">
+
+        <form name="myform2" id="form" onsubmit="return vfun1()">
+            <h1>ADMIN LOGIN</h1>
+            <div class="inputs">
+                <input type="text" name="user1" class="ID" maxlength="100" minlength="3" placeholder="ID" id="eemail"
+                    required> <br>
+                <input type="password" name="pass1" class="password" maxlength="32" minlength="8" placeholder="Password" id="lpassword"
+                    required> <br>
+            </div>
+            <div class="buttons">
+                <button type="submit"  onclick="SignIn()" style="text-decoration: none;">Login</button>
+            </div>
+            
+        </form>
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+<script src="./dataadminlogin.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="server.js"></script>
+</body>
+
+</html> -->
